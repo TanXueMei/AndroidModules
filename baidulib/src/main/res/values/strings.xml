@@ -1,0 +1,26 @@
+<resources>
+  <string name="app_name">baidulib</string>
+
+  <string name="bike_time">骑行时长</string>
+  <string name="bike_distance">骑行距离</string>
+  <string name="bike_price">费用计算</string>
+  <string name="routing_prompt">手动把车子锁上后，自动结束计费~</string>
+  <string name="book_prompt">预约车辆在您靠近时，自动解锁~</string>
+  <string name="bike_exception_prompt">如果你发现车子有异常，点击取消</string>
+  <string name="end">结束</string>
+  <string name="end_route">结束\n行程</string>
+  <string name="open_gps">请先打开GPS，提高定位准确度</string>
+  <string name="confirm">确定</string>
+  <string name="cancel">取消</string>
+  <string name="navigation">导航</string>
+  <string name="begin_navigation">开始导航</string>
+  <string name="my_position">我的位置</string>
+  <string name="input_start_place">输入起点</string>
+  <string name="input_destination">输入终点</string>
+  <string name="please_input_start_place">请输入起点</string>
+  <string name="please_input_destination">请输入终点</string>
+  <string name="inner_navi">内置导航</string>
+  <string name="baidu_navi">百度地图</string>
+  <string name="gaode_navi">高德地图</string>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="transparentCommonDialogStyle" parent="android:style/Theme.Dialog">
+    <item name="android:windowBackground">@color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+  <style name="menu_divider_style">
+    <item name="android:layout_gravity">center_vertical</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">0.5dp</item>
+    <item name="android:background">@color/color_f2f2f2</item>
+  </style>
+  <style name="dialog" parent="@android:style/Theme.Dialog">
+    <item name="android:windowFrame">@null</item><!--边框-->
+    <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+    <item name="android:windowIsTranslucent">false</item><!--半透明-->
+    <item name="android:windowNoTitle">true</item><!--无标题-->
+    <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+    <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+  </style>
+</resources>
