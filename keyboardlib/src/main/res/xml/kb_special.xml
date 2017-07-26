@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="2%p"
+    android:keyHeight="8%"
+    android:keyWidth="10%"
+    android:verticalGap="2%p">
+  <Row>
+    <Key
+        android:codes="28207"
+        android:keyLabel="港" />
+    <Key
+        android:codes="28595"
+        android:keyLabel="澳" />
+    <Key
+        android:codes="23398"
+        android:keyLabel="学" />
+    <Key
+        android:codes="-4"
+        android:isModifier="true"
+        android:isSticky="true"
+        android:keyLabel="数英" />
+    <Key
+        android:codes="-1"
+        android:isRepeatable="true"
+        android:keyLabel="完成" />
+    <Key
+        android:codes="-2"
+        android:isRepeatable="true"
+        android:keyEdgeFlags="right"
+        android:keyIcon="@mipmap/ic_delete" />
+  </Row>
+
+</Keyboard>
