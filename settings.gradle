@@ -1,1 +1,1 @@
-include ':app', ':baidulib', ':keyboardlib'
+include ':app', ':baidulib', ':keyboardlib', ':utilslib'

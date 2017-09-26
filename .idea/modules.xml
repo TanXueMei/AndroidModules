@@ -3,12 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidModules.iml" filepath="$PROJECT_DIR$/AndroidModules.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidModules.iml" filepath="$PROJECT_DIR$/AndroidModules.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baidulib/baidulib.iml" filepath="$PROJECT_DIR$/baidulib/baidulib.iml" />
       <module fileurl="file://$PROJECT_DIR$/baidulib/baidulib.iml" filepath="$PROJECT_DIR$/baidulib/baidulib.iml" />
       <module fileurl="file://$PROJECT_DIR$/keyboardlib/keyboardlib.iml" filepath="$PROJECT_DIR$/keyboardlib/keyboardlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilslib/utilslib.iml" filepath="$PROJECT_DIR$/utilslib/utilslib.iml" />
     </modules>
   </component>
 </project>
