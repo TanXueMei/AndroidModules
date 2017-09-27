@@ -1,4 +1,10 @@
 #utilslib
+## update包
+  此包包含apk更新包含适配了Android7.0适配的下载更新
+  * DowndApkProgress 下载apk安装包进度条。 资源文件包含：drawable小的bg_progress和bg_progress_back，，styles属性定义
+  * UpdateBean apk下载更新所需的信息统一封装到此类中，传到UpdateManager中完成更新
+  * UpdateManager 调起apk更新的入口。资源文件包含：layout下的progress_softupdate，styles属性定义
+
 ## ActivityManager
   应用程序Activity管理类：用于Activity管理和应用程序退出
   * 添加Activity到堆栈
@@ -39,6 +45,7 @@
   * 复制到剪切板
   * 获取非系统应用包名
   * 判断某个应用是否已经安装
+  * dp2px,px2dp,px转sp
   * 判断是否有软控制键（手机底部几个按钮）
   * 获取statusbar高度
   * 获取navigationbar高度
@@ -153,5 +160,6 @@
   * 线程内长时间显示
   * 线程外短时间显示
   * 线程外长时间显示
+
 
 

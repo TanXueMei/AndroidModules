@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--apk更新-->
+  <style name="AlertDialogCustom" parent="@android:style/Theme.Holo.Light.Dialog">
+    <item name="android:textColor">#047acd</item>
+    <item name="android:typeface">monospace</item>
+    <!--<item name="android:textSize">@dimen/text_18</item>-->
+  </style>
+  <!--apk更新进度条-->
+  <style name="StyleProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+    <item name="android:maxHeight">70dp</item>
+    <item name="android:minHeight">20dp</item>
+    <item name="android:indeterminateOnly">false</item>
+    <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal
+    </item>
+    <item name="android:progressDrawable">@drawable/bg_progress</item>
+  </style>
+</resources>
