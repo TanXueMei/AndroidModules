@@ -36,6 +36,12 @@
   * DowndApkProgress 下载apk安装包进度条。 资源文件包含：drawable小的bg_progress和bg_progress_back，，styles属性定义
   * UpdateBean apk下载更新所需的信息统一封装到此类中，传到UpdateManager中完成更新
   * UpdateManager 调起apk更新的入口。资源文件包含：layout下的progress_softupdate，styles属性定义
+## permission包
+  Rxjava结合RxPermssion实现Android6.0的权限动态请求
+  注意：
+  * 动态请求的权限在清单文件中也要写，不然会弹不出权限框
+  * 引入的Rxjava的依赖包，引入库到项目中注意包的重复问题
+
 
 ## Android7.0适配注意
   * avatar包和update包都涉及到了Android7.0的适配问题，会涉及到provider的路径问题。因为规则是:包名+.provider
