@@ -27,4 +27,6 @@ dependencies {
   })
   compile 'com.android.support:appcompat-v7:25.3.1'
   testCompile 'junit:junit:4.12'
+  compile rootProject.ext.rx.rxjava
+  compile rootProject.ext.rx.rxPermissions
 }

@@ -42,6 +42,7 @@
   * 都要传入对应项目的包名。进行provider的拼接才可实现
   * 头像设置时，CropImageUtils直接传入对应的包名.provider 形如：com.xuemei.utilslib.provider即可
   * apk更新时，直接把对应的包名也封装到UpdateBean实体类中即可
+  * 对于清单文件的配置Provider是否成功，后续用到进行测试，现在未进行测试
 
 ## ActivityManager
   应用程序Activity管理类：用于Activity管理和应用程序退出

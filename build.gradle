@@ -29,4 +29,6 @@ ext {
   targetSdkVersion = 25
   versionCode = 1
   versionName = "1.0"
+  rx = [rxjava       : "io.reactivex:rxjava:1.1.9",
+        rxPermissions: "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar"]
 }
