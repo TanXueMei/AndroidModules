@@ -1,9 +1,47 @@
 #utilslib
+## avatar包
+ 封装了通过相机拍照，相册选择图片进行头像设置(适配Android7.0)。只能再Activity中使用
+ 使用步骤
+ * CropImageUtils.register(Context applicationcontext, String providerPath, String photoPath,
+                                String cropPath)
+ * 相册获取： CropImageUtils.getInstance().openAlbum(this);
+ * 相机获取： CropImageUtils.getInstance().takePhoto(this);
+ * onActivityResult回调
+     @RequiresApi(api = Build.VERSION_CODES.KITKAT) @Override
+      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        LogUtil.d("onActivityResult requestCode:"+requestCode+"resultCode:"+resultCode);
+        CropImageUtils.getInstance()
+            .onActivityResult(this, requestCode, resultCode, data,
+                new CropImageUtils.OnResultListener() {
+                  @Override public void takePhotoFinish(String path) {
+                    //拍照回调，去裁剪
+                    CropImageUtils.getInstance().cropPicture(this, path);
+                  }
+
+                  @Override public void selectPictureFinish(String path) {
+                    //相册回调，去裁剪
+                    CropImageUtils.getInstance().cropPicture(this, path);
+                  }
+
+                  @Override public void cropPictureFinish(File file, final String path) {
+                    LogUtil.d("裁剪保存在这个文件：" + file +" 所在路径为："+path);
+                  }
+                });
+      }
+
+
 ## update包
   此包包含apk更新包含适配了Android7.0适配的下载更新
   * DowndApkProgress 下载apk安装包进度条。 资源文件包含：drawable小的bg_progress和bg_progress_back，，styles属性定义
   * UpdateBean apk下载更新所需的信息统一封装到此类中，传到UpdateManager中完成更新
   * UpdateManager 调起apk更新的入口。资源文件包含：layout下的progress_softupdate，styles属性定义
+
+## Android7.0适配注意
+  * avatar包和update包都涉及到了Android7.0的适配问题，会涉及到provider的路径问题。因为规则是:包名+.provider
+  * 都要传入对应项目的包名。进行provider的拼接才可实现
+  * 头像设置时，CropImageUtils直接传入对应的包名.provider 形如：com.xuemei.utilslib.provider即可
+  * apk更新时，直接把对应的包名也封装到UpdateBean实体类中即可
 
 ## ActivityManager
   应用程序Activity管理类：用于Activity管理和应用程序退出

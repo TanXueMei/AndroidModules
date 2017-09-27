@@ -11,9 +11,9 @@ package com.xuemei.utilslib.update;
  */
 
 public class UpdateBean {
+  private String packageName;//包名，用于拼接Android7.0适配的provider
   private String downdApkUrl;//apk下载地址
   private String savePath; //apk保存到SD卡的路径
-  private String saveFileName = ""; //完整路径名=mSavePath+"xxx.apk"
   private String versionName; //从服务器获取的版本名称
   private double versionCode; //从服务器获取的版本号
   private String  updateDescription = ""; //更新内容描述信息
@@ -35,12 +35,12 @@ public class UpdateBean {
     this.savePath = savePath;
   }
 
-  public String getSaveFileName() {
-    return saveFileName;
+  public String getPackageName() {
+    return packageName;
   }
 
-  public void setSaveFileName(String saveFileName) {
-    this.saveFileName = saveFileName;
+  public void setPackageName(String packageName) {
+    this.packageName = packageName;
   }
 
   public String getVersionName() {
@@ -73,5 +73,29 @@ public class UpdateBean {
 
   public void setForceUpdate(boolean forceUpdate) {
     this.forceUpdate = forceUpdate;
+  }
+
+  @Override public String toString() {
+    return "UpdateBean{"
+        + "packageName='"
+        + packageName
+        + '\''
+        + ", downdApkUrl='"
+        + downdApkUrl
+        + '\''
+        + ", savePath='"
+        + savePath
+        + '\''
+        + ", versionName='"
+        + versionName
+        + '\''
+        + ", versionCode="
+        + versionCode
+        + ", updateDescription='"
+        + updateDescription
+        + '\''
+        + ", forceUpdate="
+        + forceUpdate
+        + '}';
   }
 }

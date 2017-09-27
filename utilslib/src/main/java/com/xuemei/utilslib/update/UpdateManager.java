@@ -39,11 +39,11 @@ import java.net.URL;
  */
 
 public class UpdateManager {
-  private Context     mContext; //上下文
-  private UpdateBean  mUpdateBean;//封装了apk更新所需要的所有信息
-  private double clientVersion; //客户端当前的版本号
+  private Context    mContext; //上下文
+  private UpdateBean mUpdateBean;//封装了apk更新所需要的所有信息
+  private String     saveFileName;
+  private double     clientVersion; //客户端当前的版本号
   private boolean forceUpdate = true; //是否强制更新
-
   private ProgressBar mProgress; //下载进度条控件
   private static final int DOWNLOADING     = 1; //表示正在下载
   private static final int DOWNLOADED      = 2; //下载完毕
@@ -58,6 +58,7 @@ public class UpdateManager {
   public UpdateManager(Context context, UpdateBean updateBean) {
     this.mContext = context;
     this.mUpdateBean = updateBean;
+    saveFileName = updateBean.getSavePath() + updateBean.getPackageName() + ".apk";
     clientVersion = BuildConfig.VERSION_CODE;
     if (updateBean.isForceUpdate()) {
       LogUtil.d("强制升级");
@@ -180,7 +181,7 @@ public class UpdateManager {
           if (!file.exists()) {
             file.mkdir();
           }
-          String apkFile = mUpdateBean.getSaveFileName();
+          String apkFile = saveFileName;
           File ApkFile = new File(apkFile);
           FileOutputStream fos = new FileOutputStream(ApkFile);
 
@@ -238,7 +239,7 @@ public class UpdateManager {
    * 下载完成后自动安装apk
    */
   public void installAPKs() {
-    File apkFile = new File(mUpdateBean.getSaveFileName());
+    File apkFile = new File(saveFileName);
     if (!apkFile.exists()) {
       return;
     }
@@ -253,18 +254,16 @@ public class UpdateManager {
    * 兼容Android7.0
    */
   private void installAPK() {
-    File apkFile = new File(mUpdateBean.getSaveFileName());
+    File apkFile = new File(saveFileName);
     Intent intent = new Intent(Intent.ACTION_VIEW);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
       Uri apkUri =
-          FileProvider.getUriForFile(mContext, mContext.getPackageName() + ".provider", apkFile);
+          FileProvider.getUriForFile(mContext, mUpdateBean.getPackageName() + ".provider", apkFile);
       intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
       intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
     } else {
-      //            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-      //            intent.setDataAndType(Uri.parse("file://" + apkFile.toString()), "application/vnd.android.package-archive");
     }
     mContext.startActivity(intent);
   }

@@ -56,6 +56,15 @@ public class AppUtil {
   }
 
   /**
+   * 获取包名
+   */
+  public static String getPackageName(Context context) {
+    PackageManager packageManager = context.getPackageManager();
+    String packageName = context.getPackageName();
+    return packageName;
+  }
+
+  /**
    * 获取版本号
    * 也可使用 BuildConfig.VERSION_NAME 替换
    *
