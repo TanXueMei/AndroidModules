@@ -38,6 +38,8 @@
   * UpdateManager 调起apk更新的入口。资源文件包含：layout下的progress_softupdate，styles属性定义
 ## permission包
   Rxjava结合RxPermssion实现Android6.0的权限动态请求
+  参考1[http://www.91display.com/api/blog/detail.do?bid=589843799]
+  参考2[https://github.com/totond/PermissionsApplyDemo/blob/master/app/src/main/java/yanzhikai/com/permissionsapplydemo/RxPermissionsActivity.java]
   注意：
   * 动态请求的权限在清单文件中也要写，不然会弹不出权限框
   * 引入的Rxjava的依赖包，引入库到项目中注意包的重复问题
