@@ -43,7 +43,18 @@
   注意：
   * 动态请求的权限在清单文件中也要写，不然会弹不出权限框
   * 引入的Rxjava的依赖包，引入库到项目中注意包的重复问题
+## statusbar包
+  修改状态栏颜色和修改状态栏字体颜色。来自：[Dynckathline的github项目](https://github.com/DyncKathline/ChangeStatusColor-Android)
+  * 使用前再onstart()方法中 设置导航栏是否可见：StatusBarUtil.setSystemUI(MainActivity.this, true);
 
+  * 状态栏字体为白色：StatusBarUtil.StatusBarLightMode(MainActivity.this, false);
+  * 状态栏字体为深色：StatusBarUtil.StatusBarLightMode(MainActivity.this, true);
+
+  * 添加全屏(横屏)：StatusBarUtil.setFitsSystemWindows(MainActivity.this, true);
+  * 清除全屏(竖屏)：StatusBarUtil.setFitsSystemWindows(MainActivity.this, false);
+
+  * 修改状态栏颜色：StatusBarUtil.setStatusBarColor(MainActivity.this, getResources().getColor(R.color.colorAccent));
+  * 也可自己写一个颜色选择器根据用户选择显示不用颜色风格的颜色
 
 ## Android7.0适配注意
   * avatar包和update包都涉及到了Android7.0的适配问题，会涉及到provider的路径问题。因为规则是:包名+.provider
