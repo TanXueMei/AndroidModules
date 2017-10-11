@@ -12,6 +12,11 @@
       android:text="测试6.0权限"
       android:textSize="20sp"
       />
-
+  <!--测试zxing库-->
+  <ImageView
+      android:id="@+id/iv_code"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
 
 </LinearLayout>

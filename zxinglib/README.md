@@ -16,9 +16,8 @@
              //根据字符串生成二维码图片并显示在界面上，第二个参数为图片的大小（350*350）
              Bitmap qrCodeBitmap = EncodingUtils.createQRCode(
                      content, widthPix, heightPix, logoBm);
-             //设置二维码中间的团logo
-             Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.mipmap.app_logo);
-             EncodingUtils.addLogo(bitmap, bitmap);
+             //设置二维码中间的的logo图标
+              EncodingUtils.addLogo(logoBm, logoBm);
              codeImageview.setImageBitmap(qrCodeBitmap);
          } else {
              Toast.makeText(context, "Text can not be empty", Toast.LENGTH_SHORT).show();
