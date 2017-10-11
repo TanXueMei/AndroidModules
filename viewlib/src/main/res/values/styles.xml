@@ -1,0 +1,17 @@
+<resources>
+
+
+  <!--自定义对话框样式，解决对话框黑色背景边框问题-->
+  <style name="DgTransparentBg" parent="@android:style/Theme.Dialog">
+    <item name="android:windowBackground">@color/transparent</item><!-- 窗口背景透明 -->
+    <item name="android:windowFrame">@null</item><!-- 无边框 -->
+    <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+    <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->
+    <item name="android:windowIsTranslucent">false</item><!-- 半透明 -->
+    <item name="android:backgroundDimEnabled">true</item><!-- 模糊 -->
+  </style>
+  <style name="DialogShow">
+    <item name="@android:windowEnterAnimation">@anim/dialog_scale_in</item>
+    <item name="@android:windowExitAnimation">@anim/dialog_scale_out</item>
+  </style>
+</resources>

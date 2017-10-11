@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/baidulib" />
             <option value="$PROJECT_DIR$/keyboardlib" />
             <option value="$PROJECT_DIR$/utilslib" />
+            <option value="$PROJECT_DIR$/viewlib" />
             <option value="$PROJECT_DIR$/zxinglib" />
           </set>
         </option>
