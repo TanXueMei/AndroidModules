@@ -55,6 +55,9 @@
 
   * 修改状态栏颜色：StatusBarUtil.setStatusBarColor(MainActivity.this, getResources().getColor(R.color.colorAccent));
   * 也可自己写一个颜色选择器根据用户选择显示不用颜色风格的颜色
+## 修改状态栏颜色和字体第三方推荐
+ * [官网地址](https://github.com/H07000223/FlycoSystemBar)
+ * 用法介绍：1.添加库 compile "com.flyco.systembar:FlycoSystemBar_Lib:1.0.0@aar"
 
 ## Android7.0适配注意
   * avatar包和update包都涉及到了Android7.0的适配问题，会涉及到provider的路径问题。因为规则是:包名+.provider
@@ -62,7 +65,60 @@
   * 头像设置时，CropImageUtils直接传入对应的包名.provider 形如：com.xuemei.utilslib.provider即可
   * apk更新时，直接把对应的包名也封装到UpdateBean实体类中即可
   * 对于清单文件的配置Provider是否成功，后续用到进行测试，现在未进行测试
+## Android 7.0适配第三方库推荐
+* [鸿洋网址](https://github.com/hongyangAndroid/FitAndroid7)
+* 一行代码完成Android 7 FileProvider适配~
+* 使用
 
+     compile 'com.zhy.base:fileprovider:1.0.0'
+
+     通过FileProvider7这个类完成uri的获取即可，例如：
+
+      FileProvider7.getUriForFile
+      FileProvider7.setIntentDataAndType
+      FileProvider7.setIntentData
+
+      示例一 拍照
+
+      private static final int REQUEST_CODE_TAKE_PHOTO = 0x110;
+      private String mCurrentPhotoPath;
+
+      public void takePhotoNoCompress(View view) {
+      Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+      if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+          String filename = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.CHINA)
+                  .format(new Date()) + ".png";
+          File file = new File(Environment.getExternalStorageDirectory(), filename);
+          mCurrentPhotoPath = file.getAbsolutePath();
+  	     // 仅需改变这一行
+          Uri fileUri = FileProvider7.getUriForFile(this, file);
+
+          takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+          startActivityForResult(takePictureIntent, REQUEST_CODE_TAKE_PHOTO);
+      }
+    }
+
+     @Override
+       protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+      if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_TAKE_PHOTO) {
+          mIvPhoto.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath));
+      }
+      // else tip?
+
+     }
+
+     示例二 安装apk
+
+     public void installApk(View view) {
+      File file = new File(Environment.getExternalStorageDirectory(),
+              "testandroid7-debug.apk");
+      Intent intent = new Intent(Intent.ACTION_VIEW);
+      // 仅需改变这一行
+      FileProvider7.setIntentDataAndType(this,
+              intent, "application/vnd.android.package-archive", file, true);
+      startActivity(intent);
+     }
 ## ActivityManager
   应用程序Activity管理类：用于Activity管理和应用程序退出
   * 添加Activity到堆栈
